@@ -21,5 +21,6 @@
 
     <integration:channel id="hl7v22InboundHapiChannel"/>
 
-    <integration:service-activator id="hl7Processor" input-channel="hl7v22InboundHapiChannel" ref="hl7v22InboundService" method="processMessage"/>
+    <integration:service-activator id="hl7v22Processor" input-channel="hl7v22InboundHapiChannel"
+                                   ref="hl7v22InboundService" method="processMessage"/>
 </beans>
