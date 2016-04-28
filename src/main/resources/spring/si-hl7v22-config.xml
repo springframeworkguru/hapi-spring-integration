@@ -21,15 +21,6 @@
 
     <integration:channel id="hl7v22InboundHapiChannel"/>
 
-    <integration:service-activator id="hl7Processor" input-channel="hl7v22InboundHapiChannel" ref="hl7v22InboundService" method="processMessage"/>
-
-    <integration:channel id="hl7v23InboundChannel"/>
-    <integration:transformer input-channel="hl7v23InboundChannel" output-channel="hl7v23InboundHapiChannel"
-                             ref="HL7v23Parser" method="parseMessage"/>
-
-    <integration:channel id="hl7v23InboundHapiChannel"/>
-
-    <integration:service-activator id="hl7Processor23" input-channel="hl7v23InboundHapiChannel" ref="hl7v23InboundService" method="processMessage"/>
-
-
+    <integration:service-activator id="hl7v22Processor" input-channel="hl7v22InboundHapiChannel"
+                                   ref="hl7v22InboundService" method="processMessage"/>
 </beans>

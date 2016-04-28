@@ -1,19 +1,15 @@
-package guru.springframework.hl7.publish.v22;
+package guru.springframework.hl7.publish.v25;
 
 import guru.springframework.hl7.publish.HL7MessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.jms.*;
+import javax.jms.ConnectionFactory;
+import javax.jms.Queue;
 
-/**
- * Created by jt on 4/27/16.
- */
-@Service("hl7v22PublisherService")
-@Transactional
-public class HL7v22MessagePublisherImpl implements HL7MessagePublisher {
+@Service
+public class HL7v25MessagePublisherImpl implements HL7MessagePublisher {
 
     private Queue hl7InboundQueue;
     private JmsTemplate jmsTemplate;
@@ -25,18 +21,17 @@ public class HL7v22MessagePublisherImpl implements HL7MessagePublisher {
     }
 
     @Autowired
-    public void setConnectionFactory(ConnectionFactory connectionFactory) {
-        this.connectionFactory = connectionFactory;
-    }
-
-    @Autowired
     public void setJmsTemplate(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 
+    @Autowired
+    public void setConnectionFactory(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+    }
+
     @Override
     public void sendHL7Message(String hl7) {
-
         this.jmsTemplate.convertAndSend(this.hl7InboundQueue, hl7);
     }
 }
