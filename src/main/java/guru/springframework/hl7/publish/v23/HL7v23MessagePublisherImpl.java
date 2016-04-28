@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.jms.*;
 
-@Service
+@Service("hl7v23PublisherService")
 @Transactional
 public class HL7v23MessagePublisherImpl implements HL7MessagePublisher {
 
