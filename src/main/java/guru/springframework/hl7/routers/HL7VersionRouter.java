@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class HL7VersionRouter {
 
     //@Router
-    public String route(String message) throws Exception{
+    public String route(String message) throws UnhandledHL7MessageException, InvalidHL7MessageException{
 
         String routingChannel;
         final String messageVersion;
