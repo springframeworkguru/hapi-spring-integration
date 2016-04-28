@@ -24,12 +24,25 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-integration</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-test</artifactId>
+        </dependency>
 
-		<!-- This is the core HAPI library -->
+        <!-- This is the core HAPI library -->
 		<dependency>
 			<groupId>ca.uhn.hapi</groupId>
 			<artifactId>hapi-base</artifactId>
@@ -41,6 +54,13 @@
 			<artifactId>hapi-structures-v24</artifactId>
 			<version>2.2</version>
 		</dependency>
+
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v22</artifactId>
+            <version>2.2</version>
+        </dependency>
+
 
         <!--JMS Dep-->
         <dependency>
@@ -68,6 +88,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 
 </project>
