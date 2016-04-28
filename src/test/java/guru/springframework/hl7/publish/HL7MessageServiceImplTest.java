@@ -40,6 +40,7 @@ public class HL7MessageServiceImplTest {
     }
 
     @Autowired
+    @Qualifier("HL7v22MessagePublisherImpl")
     public void setHl7MessageService(HL7MessagePublisher hl7MessageService) {
         this.hl7MessageService = hl7MessageService;
     }

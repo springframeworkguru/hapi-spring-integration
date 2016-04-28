@@ -1,4 +1,4 @@
-package guru.springframework.hl7.publish.v22;
+package guru.springframework.hl7.publish.v23;
 
 import guru.springframework.hl7.publish.HL7MessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.jms.*;
 
-/**
- * Created by jt on 4/27/16.
- */
 @Service
 @Transactional
-public class HL7v22MessagePublisherImpl implements HL7MessagePublisher {
+public class HL7v23MessagePublisherImpl implements HL7MessagePublisher {
 
     private Queue hl7InboundQueue;
     private JmsTemplate jmsTemplate;
