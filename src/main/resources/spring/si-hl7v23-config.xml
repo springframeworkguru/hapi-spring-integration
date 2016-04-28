@@ -4,16 +4,14 @@
        xmlns:jms="http://www.springframework.org/schema/integration/jms"
        xmlns:integration="http://www.springframework.org/schema/integration"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <context:component-scan base-package="guru.springframework"/>
-
-    <jms:message-driven-channel-adapter id="hl7MSAdapater" destination="hl7InboundQueue"
-                                        channel="hl7InboundChannel" connection-factory="jmsConnectionFactory"/>
-
-    <integration:channel id="hl7InboundChannel"/>
-
-    <integration:router ref="HL7VersionRouter" method="route" input-channel="hl7InboundChannel"/>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd
+                    http://www.springframework.org/schema/integration
+                    http://www.springframework.org/schema/integration/spring-integration.xsd
+                    http://www.springframework.org/schema/integration/jms
+                    http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context.xsd">
 
     <integration:channel id="hl7v23InboundChannel"/>
     <integration:transformer input-channel="hl7v23InboundChannel" output-channel="hl7v23InboundHapiChannel"
@@ -21,5 +19,6 @@
 
     <integration:channel id="hl7v23InboundHapiChannel"/>
 
-    <integration:service-activator id="hl7Processor" input-channel="hl7v23InboundHapiChannel" ref="hl7v23InboundService" method="processMessage"/>
+    <integration:service-activator id="hl723Processor" input-channel="hl7v23InboundHapiChannel"
+                                   ref="hl7v23InboundService" method="processMessage"/>
 </beans>
