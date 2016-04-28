@@ -1,4 +1,4 @@
-package guru.springframework.hl7.transformers;
+package guru.springframework.hl7.transformers.v22;
 
 import ca.uhn.hl7v2.DefaultHapiContext;
 import ca.uhn.hl7v2.HL7Exception;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * Created by jt on 4/27/16.
  */
 @Component
-public class HL7Parser {
+public class HL7v22Parser {
 
     public Message parseMessage(String message) throws HL7Exception {
         HapiContext context = new DefaultHapiContext();
