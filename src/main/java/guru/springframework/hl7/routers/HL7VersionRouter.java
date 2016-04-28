@@ -4,11 +4,8 @@ import ca.uhn.hl7v2.DefaultHapiContext;
 import ca.uhn.hl7v2.HL7Exception;
 import ca.uhn.hl7v2.model.GenericMessage;
 import ca.uhn.hl7v2.parser.GenericModelClassFactory;
-import ca.uhn.hl7v2.util.Terser;
 import guru.springframework.hl7.exceptions.InvalidHL7MessageException;
 import guru.springframework.hl7.exceptions.UnhandledHL7MessageException;
-import org.omg.CORBA.DynAnyPackage.Invalid;
-import org.springframework.integration.annotation.Router;
 import org.springframework.stereotype.Component;
 
 /**
