@@ -22,8 +22,9 @@ public class HL7v26InboundMessageServiceImpl implements HL7InboundMessageService
         ADT_A01 adtMsg = (ADT_A01)hapiMsg;
         MSH msh = adtMsg.getMSH();
 
-        XPN pn = adtMsg.getPID().getPatientName(0);
+        XPN[] xpns = adtMsg.getPID().getPatientName();
 
-        System.out.println(pn.toString());
-        return null;    }
+        for (XPN xpn : xpns) {
+            System.out.println(xpn.toString());
+        }        return null;    }
 }
