@@ -5,30 +5,24 @@
        xmlns:integration="http://www.springframework.org/schema/integration"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <import resource="si-hl7v21-config.xml"/>
-    <import resource="si-hl7v22-config.xml"/>
-    <import resource="si-hl7v24-config.xml"/>
-    <import resource="si-hl7v25-config.xml"/>
-    <import resource="si-hl7v26-config.xml"/>
-
-    <context:component-scan base-package="guru.springframework"/>
-
     <jms:message-driven-channel-adapter id="hl7MSAdapater" destination="hl7InboundQueue"
                                         channel="hl7InboundChannel"
                                         connection-factory="jmsConnectionFactory"/>
 
+    <context:component-scan base-package="guru.springframework"/>
+
+
+
     <integration:channel id="hl7InboundChannel"/>
 
     <integration:router ref="HL7VersionRouter" method="route" input-channel="hl7InboundChannel"/>
-    <integration:channel id="hl7v23InboundChannel"/>
+    <import resource="si-hl7v21-config.xml"/>
+    <import resource="si-hl7v22-config.xml"/>
+    <import resource="si-hl7v23-config.xml"/>
+    <import resource="si-hl7v24-config.xml"/>
+    <import resource="si-hl7v25-config.xml"/>
+    <import resource="si-hl7v26-config.xml"/>
 
-    <integration:transformer input-channel="hl7v23InboundChannel" output-channel="hl7v23InboundHapiChannel"
-                             ref="HL7v23Parser" method="parseMessage"/>
 
-    <integration:channel id="hl7v23InboundHapiChannel"/>
-
-    <integration:service-activator id="hl7v23Processor" input-channel="hl7v23InboundHapiChannel"
-                                   ref="hl7v23InboundService" method="processMessage"/>
 
 </beans>

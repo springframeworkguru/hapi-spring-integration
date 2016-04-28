@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class HL7VersionRouter {
 
+    public static final String HL7V21_INBOUND_CHANNEL = "hl7v21InboundChannel";
+
     public String route(String message) throws UnhandledHL7MessageException, InvalidHL7MessageException{
 
         String routingChannel;
@@ -27,7 +29,7 @@ public class HL7VersionRouter {
             switch (messageVersion)
             {
                 case "2.1":
-                    routingChannel = "hl7v21InboundChannel";
+                    routingChannel = HL7V21_INBOUND_CHANNEL;
                     break;
                 case "2.2":
                     routingChannel = "hl7v22InboundChannel";
