@@ -8,6 +8,7 @@
 
     <import resource="si-hl7v21-config.xml"/>
     <import resource="si-hl7v22-config.xml"/>
+    <import resource="si-hl7v25-config.xml"/>
     <import resource="si-hl7v26-config.xml"/>
 
     <context:component-scan base-package="guru.springframework"/>
